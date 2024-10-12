@@ -1,0 +1,4 @@
+services:
+  node-app:
+    container_name: node-app-test
+    command: npm run test

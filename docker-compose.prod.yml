@@ -1,0 +1,4 @@
+services:
+  node-app:
+    container_name: node-app-prod
+    command: npm start
