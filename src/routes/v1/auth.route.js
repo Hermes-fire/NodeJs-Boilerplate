@@ -1,14 +1,10 @@
-// Core modules
 const express = require('express');
 
-// Middleware
 const auth = require('../../middlewares/auth');
 const validate = require('../../middlewares/validate');
 
-// Validation
 const authValidation = require('../../validations/auth.validation');
 
-// Controller
 const authController = require('../../controllers/auth.controller');
 
 const router = express.Router();

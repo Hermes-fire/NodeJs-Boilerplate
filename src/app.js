@@ -1,31 +1,23 @@
-// Core modules
 const express = require('express');
 const httpStatus = require('http-status');
 
-// Middleware
 const helmet = require('helmet');
 const xss = require('xss-clean');
 const mongoSanitize = require('express-mongo-sanitize');
 const compression = require('compression');
 const cors = require('cors');
 const passport = require('passport');
+
 const { authLimiter } = require('./middlewares/rateLimiter');
+const { errorConverter, errorHandler } = require('./middlewares/error');
 
-// Logging
 const morgan = require('./config/morgan');
-
-// Configuration
 const config = require('./config/config');
-
-// Passport Strategy
 const { jwtStrategy } = require('./config/passport');
 
-// Routes
-const routes = require('./routes/v1');
-
-// Error handling
-const { errorConverter, errorHandler } = require('./middlewares/error');
 const ApiError = require('./utils/ApiError');
+
+const routes = require('./routes/v1');
 
 const app = express();
 

@@ -1,15 +1,22 @@
-FROM node:alpine
+FROM node:20.18.0-alpine
 
-RUN mkdir -p /usr/src/node-app && chown -R node:node /usr/src/node-app
+# Create app directory
+RUN mkdir -p /usr/src/node-app
 
+# Set the working directory
 WORKDIR /usr/src/node-app
 
-COPY package.json yarn.lock ./
+# Copy package.json and package-lock.json
+COPY package.json package-lock.json ./
 
-USER node
+# Install dependencies as root
+RUN npm install
 
-RUN yarn install --pure-lockfile
+# Copy the rest of the application code
+COPY . .
 
-COPY --chown=node:node . .
-
+# Expose the application port
 EXPOSE 3000
+
+# Start the application (adjust the command as needed)
+CMD ["npm", "start"]
