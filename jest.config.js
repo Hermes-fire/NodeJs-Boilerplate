@@ -5,9 +5,8 @@ module.exports = {
   },
   restoreMocks: true,
   collectCoverage: true,
-  coverageDirectory: 'coverage',
   coveragePathIgnorePatterns: ['node_modules', 'src/config', 'src/app.js', 'tests'],
   reporters: ['default'],
-  coverageReporters: ["text"],
+  coverageReporters: ['text'],
   coverageDirectory: './',
 };

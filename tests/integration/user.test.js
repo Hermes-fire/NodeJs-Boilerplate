@@ -1,5 +1,5 @@
 const request = require('supertest');
-const faker = require('@faker-js/faker').faker;
+const { faker } = require('@faker-js/faker');
 const httpStatus = require('http-status');
 const app = require('../../src/app');
 const setupTestDB = require('../utils/setupTestDB');
@@ -46,7 +46,7 @@ describe('User routes', () => {
       expect(dbUser).toMatchObject({ name: newUser.name, email: newUser.email, role: newUser.role, isEmailVerified: false });
     });
 
-  test('should be able to create an admin as well', async () => {
+    test('should be able to create an admin as well', async () => {
       await insertUsers([admin]);
       newUser.role = 'admin';
 
@@ -140,7 +140,7 @@ describe('User routes', () => {
     });
   });
 
-   describe('GET /v1/users', () => {
+  describe('GET /v1/users', () => {
     test('should return 200 and apply the default query options', async () => {
       await insertUsers([userOne, userTwo, admin]);
 
