@@ -1,6 +1,8 @@
 const passport = require('passport');
 const httpStatus = require('http-status');
+
 const ApiError = require('../utils/ApiError');
+
 const { roleRights } = require('../config/roles');
 
 const verifyCallback = (req, resolve, reject, requiredRights) => async (error, user, info) => {
@@ -20,12 +22,14 @@ const verifyCallback = (req, resolve, reject, requiredRights) => async (error, u
   resolve();
 };
 
-const auth = (...requiredRights) => async (req, res, next) => {
-  return new Promise((resolve, reject) => {
-    passport.authenticate('jwt', { session: false }, verifyCallback(req, resolve, reject, requiredRights))(req, res, next);
-  })
-    .then(() => next())
-    .catch((error) => next(error));
-};
+const auth =
+  (...requiredRights) =>
+  async (req, res, next) => {
+    return new Promise((resolve, reject) => {
+      passport.authenticate('jwt', { session: false }, verifyCallback(req, resolve, reject, requiredRights))(req, res, next);
+    })
+      .then(() => next())
+      .catch((error) => next(error));
+  };
 
 module.exports = auth;

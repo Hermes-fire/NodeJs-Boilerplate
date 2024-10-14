@@ -4,6 +4,9 @@ module.exports = {
     NODE_ENV: 'test',
   },
   restoreMocks: true,
+  collectCoverage: true,
   coveragePathIgnorePatterns: ['node_modules', 'src/config', 'src/app.js', 'tests'],
-  coverageReporters: ['text', 'lcov', 'clover', 'html'],
+  reporters: ['default'],
+  coverageReporters: ['text'],
+  coverageDirectory: './',
 };
