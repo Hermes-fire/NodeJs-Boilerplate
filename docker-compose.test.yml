@@ -1,4 +1,4 @@
 services:
   node-app:
     container_name: node-app-test
-    command: yarn test
+    command: npm run test
