@@ -10,3 +10,7 @@ yarn-error.log
 
 # Code coverage
 coverage
+
+# SonarQube
+.scannerwork
+sonar-project.properties
