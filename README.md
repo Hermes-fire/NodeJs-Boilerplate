@@ -57,7 +57,6 @@ cp .env.example .env
 - **Docker support**
 - **Code coverage**: using [coveralls](https://coveralls.io)
 - **Code quality**: with [SonarQube](https://www.sonarsource.com/)
-- **Git hooks**: with [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged)
 - **Linting**: with [ESLint](https://eslint.org) and [Prettier](https://prettier.io)
 - **Editor config**: consistent editor configuration using [EditorConfig](https://editorconfig.org)
 
@@ -66,55 +65,58 @@ cp .env.example .env
 Running locally:
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 Running in production:
 
 ```bash
-yarn start
+npm start
 ```
 
 Testing:
 
 ```bash
 # run all tests
-yarn test
+npm run test
 
 # run all tests in watch mode
-yarn test:watch
+npm run test:watch
 
 # run test coverage
-yarn coverage
+npm run coverage
 ```
 
 Docker:
 
 ```bash
 # run docker container in development mode
-yarn docker:dev
+npm run docker:dev
 
 # run docker container in production mode
-yarn docker:prod
+npm run docker:prod
 
 # run all tests in a docker container
-yarn docker:test
+npm run docker:test
+
+# run with force image rebuild
+npm run docker:build:(oneOf:[dev,prod,test])
 ```
 
 Linting:
 
 ```bash
 # run ESLint
-yarn lint
+npm run lint
 
 # fix ESLint errors
-yarn lint:fix
+npm run lint:fix
 
 # run prettier
-yarn prettier
+npm run prettier
 
 # fix prettier errors
-yarn prettier:fix
+npm run prettier:fix
 ```
 
 ## Environment Variables
@@ -400,13 +402,11 @@ To maintain a consistent coding style across different IDEs, the project contain
 
 ## Contributing
 
-Contributions are more than welcome! Please check out the [contributing guide](CONTRIBUTING.md).
+Contributions are more than welcome !
 
 ## Inspirations
 
-- [danielfsousa/express-rest-es2017-boilerplate](https://github.com/danielfsousa/express-rest-es2017-boilerplate)
-- [madhums/node-express-mongoose](https://github.com/madhums/node-express-mongoose)
-- [kunalkapadia/express-mongoose-es6-rest-api](https://github.com/kunalkapadia/express-mongoose-es6-rest-api)
+- [hagopj13/node-express-boilerplate](https://github.com/hagopj13/node-express-boilerplate)
 
 ## License
 
